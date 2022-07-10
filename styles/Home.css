@@ -1,0 +1,23 @@
+body {
+    background-color: #EFF3FA;
+}
+.sbiSearching {
+    border: 1pt solid #caccd1;
+    border-bottom-left-radius: 35px !important;
+    border-bottom-right-radius: 35px !important;
+    z-index: 999;
+}
+.srpActive {
+}
+.srpCircleReady {
+    border: 1pt solid #14AE46;
+    background-color: #36C940;
+}
+.srpCircleWaiting {
+    border: 1pt solid #E09E3E;
+    background-color: #ffbd4d;
+}
+.srpCircleBusy {
+    border: 1pt solid #E33E41;
+    background-color: #FF5D5B;
+}

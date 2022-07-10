@@ -1,0 +1,67 @@
+.contentWrapper {
+    width: 100vw;
+    min-height: 40vh;
+    padding-top: 10px;
+    
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+
+}
+
+.firstColumn { 
+    padding: 70px 0;
+    width: 300px;
+    display: flex;
+    flex-flow: column nowrap;
+
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.secondColumn {
+    width: 990px;
+    margin-left: 30px;
+
+    display: flex;
+    flex-flow: column nowrap;
+
+    justify-content: flex-start;
+    align-items: flex-start;
+
+}
+
+.filterBox {
+
+    width: 100%;
+    min-height: 400px;
+
+    border: 1px solid #caccd1;
+    background-color: #fff;
+}
+.filterItem {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+}
+.filterItemHeader {
+    width: 100%;
+}
+.sortBox { 
+    width: 100%;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: baseline;
+}
+.resultsBox {
+    width: 100%;
+    margin-top: 10px;
+
+    display: flex;
+    flex-flow: row wrap;
+
+}
+.card {
+
+}

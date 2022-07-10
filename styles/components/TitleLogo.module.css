@@ -1,0 +1,24 @@
+
+
+.container {
+    display: flex;
+    flex-flow: row nowrap;
+
+
+    font-family: 'Exo', sans-serif;
+    font-weight: 800;
+    font-style: italic;
+    font-size: 70px;
+    color: #333447;
+    align-items: baseline;
+
+}
+
+.titleSmall {
+    font-weight: 600 !important;
+    font-size: .45em;
+    color:  #52565E;
+    display: flex;
+    flex-direction: row;
+
+}

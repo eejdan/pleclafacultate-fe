@@ -10,7 +10,9 @@ import universityCardStyles from '../styles/components/UniversityCard.module.css
 export default function UniversityCard(props) {
     let [currentKey, setCurrentKey] = useState(0);
 
-    var domainsContainer = {
+
+
+    var domainsContainer = props.domainsContainer || {
         'arte': ['saiapm'],
         'it': ['it', 'it2']
     }

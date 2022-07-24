@@ -1,0 +1,75 @@
+.cardsHolder {
+    width: 100vw;
+    padding: 100px 300px;
+    display: flex;
+    flex-flow: row wrap;
+}
+.cardsHolder > * {
+    margin-left: 20px;
+}
+.wrapper {
+    display: contents;
+}
+.container {
+    --card-width: 360px;
+
+    margin-left: 20px;
+    overflow: hidden;
+
+    width: var(--card-width);
+    height: 500px;
+
+    border: 1pt solid #0070F3;
+    border-radius: 35px;
+
+    display: grid;
+    grid-template-rows: 150px 150px auto 100px;
+
+    text-align: center;
+}
+
+.imageContainer {
+    border: 1pt solid #caccd1;
+}
+.univTitle {
+    font-weight: 500;
+    font-size: 1.2em;
+}
+.univLoc {
+    font-style: italic;
+}
+.motto {
+    font-size: 1.1em;
+}
+.domainsContainer {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: baseline;
+}
+.domainsContainer > * {
+    margin-left: 20px;
+}
+.domainPopup {
+    display: none;
+    width: var(--card-width);
+    height: 100px;
+    margin-top: -1px;
+    margin-left: -10px;
+    position: absolute;
+    z-index: 200;
+
+    border: 1pt solid #caccd1;
+    background-color: #fff;
+
+    overflow: auto;
+}
+.domainTitle {
+    width: 100%;
+    text-align: center;
+}
+.domainTitle:hover + .domainPopup {
+    display: block;
+}
+.domainPopup:hover {
+    display: block;
+}

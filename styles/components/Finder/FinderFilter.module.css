@@ -1,0 +1,27 @@
+.wrapper {
+    width: 300px;
+    height: min(60vh, 600px);
+    
+}
+.filterItem {
+    margin-bottom: 10px;
+    width: 100%;
+    
+    border: 1pt solid #caccd1;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.itemHeader {
+    padding: 10px 30px 3px 15px;
+    font-weight: 600;
+    font-size: 1.1em;
+
+    border-bottom: 1pt solid #caccd1;
+}
+.itemHeader > small {
+    font-weight: 400;
+    font-size: 0.8em;
+}
+.itemSelect {
+    padding: 10px 20px 10px 15px;
+}

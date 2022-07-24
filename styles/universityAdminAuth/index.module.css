@@ -1,0 +1,77 @@
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-flow: row nowrap;
+
+    align-items: center;
+    justify-content: center;
+}
+.container {
+    width: 400px;
+
+    display: flex;
+    flex-flow: column nowrap;
+
+
+}
+.container > * {
+    width: 100%
+}
+
+.loginBox {
+    margin-bottom: 30px;
+
+    border: 1pt solid #0070F3;
+    border-radius: 25px;
+    background-color: #ffffff;
+
+    padding: 30px; 
+}
+
+.loginBox > form {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.loginBox > form > * {
+    width: 100%;
+}
+.loginBox > form > label {
+    text-align: left;
+    font-style: italic;
+    
+    margin-top: 10px;
+}
+.loginBox > form > button[type='submit'] {
+    width: 200px;
+    justify-self: center;
+    margin-top: 3px;
+    padding: 10px;
+    
+    border: 1pt solid #0070F3;
+    border-radius: 20px;
+    background-color: #fff;
+}
+.suggestRegisterBox {
+    border: 1pt solid #0C66BC;
+    border-radius: 25px;
+    background-color: #0070F3;
+    color: white;
+    font-weight: 500;
+    padding: 15px 30px;
+}
+.suggestRegisterBox > * {
+    width: 100%;
+}
+.baselineText { 
+    font-size: 1.1em;
+}
+.loginBox textarea {
+    resize: none;
+}
+.messagetextarea {
+    height: 100px;
+}

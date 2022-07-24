@@ -11,7 +11,9 @@ export default function Header() {
     <div className={styles.wrapper}>
         <div className={styles.content}>
             <div>left</div>
-            <TitleLogo />
+            <div style={{ fontSize: '70px' }}>
+                <TitleLogo />
+            </div>
             <div>right</div>
         </div>
         <div className={`${styles.underbar} ${styles.unseen}`}>

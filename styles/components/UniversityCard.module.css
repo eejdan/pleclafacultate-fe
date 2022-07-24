@@ -1,0 +1,171 @@
+.wrapper {
+    padding: 0 5px 10px 0;
+    width: 350px;
+    height: 500px;
+}
+.container {
+    height: 100%;
+    border: 1px solid #caccd1;
+    border-radius: 10px;
+    font-size: 17.6px;
+
+    background-color: #fff;
+
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    text-align: center;
+
+    overflow: hidden;
+}
+.container > * {
+    width: 100%;
+}
+
+
+.imageHolder {
+    box-sizing: content-box;
+    height: 170px;
+    overflow: hidden;
+    
+ /*    background: url("https://cdn.vox-cdn.com/thumbor/zvifmyvMRwMLg-h2Q51j3BqqBpE=/1400x788/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/22661965/img19.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    -o-background-size: cover !important;
+    background-size: contain !important;   */
+}
+.imageHolder > .imageDisplay {
+    width: 100%;
+    height: auto;
+}
+.infoContainer {
+    flex: 1 1;
+    padding: 5px 0 0 0;
+    margin: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.infoContainer > * {
+    width: 100%; 
+}
+.titleHolder {
+    font-weight: 500;
+    font-size: 1.1em;
+}
+.locationHolder {
+    font-weight: 500;
+    font-style: italic;
+}
+.mottoHolder {
+    padding: 5px 0 3px 0;
+    font-size: .90em;
+    font-style: italic;
+}
+.domainsWrapper {
+    flex: 1 1;
+    padding-top: 10px;
+    max-height: 160px;
+}
+.domainsContainer {
+    max-height: 160px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.domainItemWrapper {
+    display: block;
+    flex-direction: row nowrap;
+}
+.domainItem {
+    margin-bottom: 10px;
+    margin-left: 7px;
+    padding: 3px 20px 3px;
+
+    border: 1pt solid #caccd1;
+    border-radius: 20px;
+    
+    font-size: 14px;
+}
+.domainPopupContainer {
+    --domainPopup-height: 230px;
+
+    position: absolute;
+    margin-top: calc(0px - var(--domainPopup-height) - 5px);
+    margin-left: 7px;
+    width: 300px;
+    height: var(--domainPopup-height);
+
+    
+    border: 1px solid #caccd1;
+    border-radius: 10px;
+    background-color: #fff;
+    
+    display: flex;
+    flex-flow: column nowrap;
+    
+    text-align: left;
+    overflow: hidden;
+}
+.domainPopupHeader {
+    padding: 10px 30px 3px 15px;
+    font-weight: 500;
+    border-bottom: 1px solid #caccd1;
+}
+.domainPopupFacultiesContainer {
+    padding: 1px 30px 3px 15px;
+    overflow: auto;
+}
+.learnMoreContainer {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+
+}
+.learnMoreButton {
+    color: white;
+
+    padding: 5px 35px 5px;
+    border: 1px solid #0834f5d2;
+    background-color: #0834f5d2;
+    border-radius: 40px;
+    font-weight: 500;
+}
+.bottomContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-bottom: 3px;
+}
+.linkContainer {
+    padding: 0 0 7px 22px;
+
+    font-size: 20px;
+    font-weight: 500;
+    text-align: left;
+    
+    display: flex;
+    align-items: center;
+}
+.linkContainer > div {
+    margin: 0 4px 3px 0;
+}
+.ratingHolder {
+    padding: 0 14px 7px 0;
+
+    text-align: right;
+    font-weight: 500;
+    font-size: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.ratingHolder > div {
+    margin: 0 4px;
+}

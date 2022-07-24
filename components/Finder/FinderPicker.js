@@ -1,10 +1,7 @@
 
-import styles from '../styles/components/FinderPicker.module.css'
+import styles from '../../styles/components/FinderPicker.module.css'
 
 export default function FinderPicker(props) {
-
-
-
     return (
         <div className={styles.wrapper}>
             <div 
@@ -27,7 +24,4 @@ export default function FinderPicker(props) {
             </div>
         </div>
     )
-}
-export async function getServerSideProps(context) {
-    return {}
 }

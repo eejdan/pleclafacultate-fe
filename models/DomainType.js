@@ -1,5 +1,5 @@
 
-const { Schema, model, models } = require('mongoose')
+import { Schema, model, models } from 'mongoose'
 
 const domainTypeSchema = new Schema({
     displayName: String,

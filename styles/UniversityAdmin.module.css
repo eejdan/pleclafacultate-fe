@@ -7,7 +7,7 @@
     height: 100%;
 
     display: grid;
-    grid-template-columns: 0.5fr 1.5fr;
+    grid-template-columns: min(300px, 25%) 1.5fr;
     grid-template-rows: 60px 2.4fr;
     grid-auto-columns: 1fr;
     grid-auto-rows: 1fr;
@@ -27,31 +27,35 @@
     display: flex; 
     justify-content: center;
     align-items: center;
-
+    
     font-size: 30px;
+    background-color: #fff;
 }
 
 .panelHeader { 
+    
     grid-area: panelHeader; 
-
+    
     display: flex; 
     justify-content: center;
     align-items: center;
-
+    
     font-size: 25px;
+    background-color: #fff;
 }
 
 .navSidebar { 
     grid-area: navSidebar;
-
+    
     height: 100%;
-
+    
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: flex-start;
-
     
+    
+    background-color: #fff;
 }
 .navSidebar > * {
     width: 100%;
@@ -59,11 +63,11 @@
     align-items: center;
 }
 .navSingleItem {
-    height: 80px;
+    height: 40px;
     text-indent: 30px;
 }
 .navMultipleItem {
-    height: 60px;
+    height: 30px;
     text-indent: 50px;
 }
   
@@ -74,5 +78,5 @@
 
     display: block;
 
-    overflow-y: auto;
+    overflow: scroll;
 }

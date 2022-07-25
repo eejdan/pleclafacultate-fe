@@ -3,18 +3,20 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar, faLink } from '@fortawesome/free-solid-svg-icons'
+import { faStar, faLink, faHandPointer } from '@fortawesome/free-solid-svg-icons'
 
 import universityCardStyles from '../styles/components/UniversityCard.module.css'
 
 export default function UniversityCard(props) {
     let [currentKey, setCurrentKey] = useState(0);
 
-
+    useEffect(() => {
+        
+    }, [props.motto])
 
     var domainsContainer = props.domainsContainer || {
-        'arte': ['saiapm'],
-        'it': ['it', 'it2']
+        'Arte': ['saiapm'],
+        'IT': ['it', 'it2']
     }
     const handleOpen = (placeKey) => {
         setCurrentKey(placeKey)
@@ -30,7 +32,7 @@ export default function UniversityCard(props) {
                     <div className={universityCardStyles.titleHolder}>
                     <small>Universitatea</small> Alexandru Ioan Cuza</div>
                     <div className={universityCardStyles.locationHolder}>Iasi</div>
-                    <div className={universityCardStyles.mottoHolder}>Prosperitate, Ceva, Altceva</div>
+                    <div className={universityCardStyles.mottoHolder}>{props.motto || "Prosperitate, Ceva, Altceva" }</div>
                     <div className={universityCardStyles.domainsWrapper}>
                         <div className={universityCardStyles.domainsContainer}>
                             {
@@ -49,7 +51,7 @@ export default function UniversityCard(props) {
                         </div>
                     </div>
                     <div className={universityCardStyles.learnMoreContainer}>
-                        <Link href={"/"}>
+                        <Link href={props.url || "/"}>
                             <div className={universityCardStyles.learnMoreButton}>
                                 Mai Multe 
                             </div>
@@ -61,7 +63,8 @@ export default function UniversityCard(props) {
                         <div>Link extern</div><FontAwesomeIcon icon={faLink} size={"1x"}/>
                     </div>
                     <div className={universityCardStyles.ratingHolder}>
-                        <div>4.7</div><FontAwesomeIcon icon={faStar} size={"1x"}/>
+                        <FontAwesomeIcon icon={faStar} size={"1x"} color={"#fdcc0d"}/>
+                        <div>4.7</div>
                     </div>
                 </div>
             </div>
@@ -91,7 +94,14 @@ function DomainItem(props) {
             : '' }
             <div
                 className={universityCardStyles.domainItem}
-                onClick={handleClick}>{props.domainTitle}
+                onClick={handleClick}
+            >
+                <div className={universityCardStyles.domainTitle}>
+                    {props.domainTitle}
+                </div>
+                <div className={universityCardStyles.domainIcon}>
+                    <FontAwesomeIcon icon={faHandPointer} transform={{ rotate: -10 }} />
+                </div>
             </div>
         </div>
     )

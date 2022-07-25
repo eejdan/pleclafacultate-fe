@@ -13,12 +13,13 @@ const routes = [
         items: [{
             displayName: 'Pagina Principala', href: 'mainpageEditor'
         }, {
-            displayName: 'Ghid de Admitere', href: 'admissionguideEditor'
+            displayName: 'Facultati si Ghid de Admitere', href: 'facultiesPageEditor'
+        }, { 
+            displayName: 'Pagini Aditionale', href: 'additionalEditor' 
         }]
     },       
-    { displayName: 'Pagini Aditionale', href: 'additionalEditor', type: 'single'},
-    { displayName: 'Facultati', href: 'facultiesEditor', type: 'single'},
-    { displayName: 'Previzualizare', href: 'preview', type: 'single'},
+/*     { displayName: 'Facultati', href: 'facultiesEditor', type: 'single'},
+ */ { displayName: 'Previzualizare', href: 'preview', type: 'single'},
 ]
 
 export default function Layout(props) {

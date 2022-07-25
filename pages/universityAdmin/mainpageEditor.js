@@ -1,42 +1,34 @@
-import dynamic from 'next/dynamic';
-import styles from '../../styles/universityAdmin/MainpageEditor.module.css'
+import React, { useRef } from 'react'
+
+import getSession from '../../lib/get-session'
+
 import Layout from './Layout'
+import EditorContainer from '../../components/EditorContainer'
 
-import quillImageHandler from '../../utils/quillImageHandler'
-
-const ReactQuill = dynamic(() => import("react-quill"), {
-    ssr: false
-  });
-
-var toolbarContainer = [
-    ['bold', 'italic', 'underline', 'strike'],       
-    ['blockquote', 'code-block'],
-    [{ 'header': 1 }, { 'header': 2 }],  
-    [{ 'color': [] }, { 'background': [] }],         
-    [{ 'font': [] }],
-    [{ 'align': [] }],
-
-    ['clean'],                                        
-    ['image'] //add image here
-]; 
+import styles from '../../styles/universityAdmin/MainpageEditor.module.css'
 
 export default function MainpageEditor() {
+
+
     return (
         <Layout>
             <div className={styles.wrapper}>
                 <div className={styles.container}>
-                    <ReactQuill 
-                        modules={{
-                            toolbar: {
-                                container: toolbarContainer,
-                                handlers: {
-                                    image: quillImageHandler
-                                }
-                            }
-                        }}
-                    />
+                    <div className={styles.header}>
+                        <div>Aici puteti edita pagina principala a spatiului virtual al universitatii</div>
+                        <div>
+                            TBD
+                        </div>
+                    </div>
+                    <EditorContainer />
                 </div>
-            </div>            
+            </div>
         </Layout>
     )
+}
+
+
+export async function getServerSideProps({req, res}) {
+    const session = await getSession(req, res);
+    return { props: {} };
 }

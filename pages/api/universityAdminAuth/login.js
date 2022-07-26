@@ -40,7 +40,8 @@ export default async function handler(req, res)  {
     await setSessionProperty(newSid, 'loggedIn', true);
     await setSessionProperty(newSid, 'univ', roleId);
 
-    console.log(await getSession(newSid));
+    setTimeout( async () => 
+    {console.log(await getSession(newSid));
 
-    return res.status(200).json({ error: false, sid: newSid });
+    return res.status(200).json({ error: false, sid: newSid });}, 200)
 }

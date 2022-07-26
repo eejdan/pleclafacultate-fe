@@ -18,6 +18,7 @@ export default function EditorContainer(props) {
         if (editorRef.current) {
             console.log(editorRef.current.getContent());
         }
+        props.handleSave(editorRef.current.getContent())
     }
     return (
         <div>
@@ -25,7 +26,8 @@ export default function EditorContainer(props) {
             <Editor
                 apiKey={"ekq46sr7mn7jnrhi84k18yjxdpxtjdfesnowejeug9yq4eex"}
                 onInit={(evt, editor) => editorRef.current = editor}
-                initialValue="<p>This is the initial content of the editor.</p>"
+                initialValue={ props.pageContent || " "}
+                onChange={(value) => { props.handleSave(editorRef.current.getContent()) }}
                 init={{
                     height: 300,
                     menubar: true,
@@ -39,7 +41,6 @@ export default function EditorContainer(props) {
                     
                     content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
                 }}
-                onEditorChange={(value, editor) => {}}
             />
             <button onClick={save}>Save</button>
         </div>

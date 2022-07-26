@@ -4,7 +4,10 @@ import { Schema, model, models } from 'mongoose'
 
 const sessionSchema = new Schema({
     sessionString: String,
-    store: Object
+    store: {
+        type: Object,
+        default: {}
+    }
 }, {
     collection: 'sessions'
 })

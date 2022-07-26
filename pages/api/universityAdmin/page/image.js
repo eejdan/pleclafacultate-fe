@@ -10,11 +10,11 @@ export default async function handler(req, res) {
     console.log(req.body)
     await connectMongo();
 
-    let qd = await QuillDoc.findById(req.body.qdid).exec();
+    var univ = await University.findById(sessionContainer.currentSession.store.univ).exec();
 
-    qd.quillContent = req.body.content;
+    univ.imageUrl = req.body.imageurl;
 
-    await qd.save();
+    await univ.save()
     res.status(200).json({});
 
 }

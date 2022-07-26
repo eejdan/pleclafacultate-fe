@@ -28,7 +28,8 @@ const universitySchema = new Schema({
     },
     mainPage: mongoose.SchemaTypes.ObjectId,
     admissionGuidePage: mongoose.SchemaTypes.ObjectId,
-    additionalPages: [additionalPageSchema]
+    additionalPages: [additionalPageSchema],
+    imageUrl: String,
 }, {
     collection: 'universities',
     strict: false

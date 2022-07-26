@@ -1,6 +1,7 @@
 
 import connectMongo from '../../../../utils/connectMongo'
 
+import University from '../../../../models/University'
 import QuillDoc from '../../../../models/QuillDoc'
 
 export default async function handler(req, res) {
@@ -10,11 +11,11 @@ export default async function handler(req, res) {
     console.log(req.body)
     await connectMongo();
 
-    var univ = await University.findById(sessionContainer.currentSession.store.univ).exec();
-
-    univ.imageUrl = req.body.imageurl;
-
-    await univ.save()
+    var univ = await University.findById(req.body.univId).exec();
+    console.log(univ);
+    univ.imageUrl = req.body.imgurl;
+    console.log(univ);
+    await univ.save();
     res.status(200).json({});
 
 }

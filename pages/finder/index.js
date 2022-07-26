@@ -31,9 +31,21 @@ export default function Finder(props) {
                 </div>
                 <div className={styles.secondColumn}>
                     <div className={styles.resultsBox}>
-                        <UniversityCard />
-                        <UniversityCard />
-                        <UniversityCard />
+                        {
+                            props.univs.map(univ => {
+                                let unv = JSON.parse(univ);
+                                return (
+                                    <div key={unv.link} onClick={() => { window.location = '/university/'+unv.link}}>
+                                    <UniversityCard 
+                                        title={unv.name}
+                                        motto={unv.motto}
+                                        imageUrl={unv.imageurl}
+                                    />
+                                    </div>
+                                )
+                            })
+                        }
+                        {/* <UniversityCard /> */}
                     </div>
                 </div>
             </div>
@@ -84,11 +96,14 @@ export async function getServerSideProps(context) {
 
         container.props.univs = univs.map(univ => {
             let container = {
+                name: univ.displayName,
                 imageurl: univ.imageUrl || 'https://static.vecteezy.com/system/resources/previews/004/851/941/original/university-logo-or-education-logo-concept-illustration-university-logo-design-template-vector.jpg',
                 link: univ.shortName,
                 motto: univ.motto || 'motto not filled',
             }
+            return JSON.stringify(container);
         })
+        console.log(container.props.univs);
     }
 
     return container;

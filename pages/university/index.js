@@ -1,8 +1,10 @@
 
 import { useState, } from 'react'
+import ReactHtmlParser from 'react-html-parser'
 import Header from '../../components/Header'
 import SectionPageNav from '../../components/SectionPageNav'
 import ReviewsBar from '../../components/ReviewsBar'
+
 
 import styles from '../../styles/University.module.css'
 
@@ -18,7 +20,7 @@ export default function UniversityPage(props) {
             </div>
             <div className={styles.contentWrapper}>
             <div className={styles.contentContainer}>
-                <p dangerouslySetInnerHTML={{__html: props.content}} />
+                { ReactHtmlParser(props.content)}
             </div>
             </div>
         </div>

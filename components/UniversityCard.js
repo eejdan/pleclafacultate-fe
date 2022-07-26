@@ -16,7 +16,7 @@ export default function UniversityCard(props) {
 
     var domainsContainer = props.domainsContainer || {
         'Arte': ['saiapm'],
-        'IT': ['it', 'it2']
+        'IT': ['FACIEE', 'Cibernetica, statistica si informatica economica']
     }
     const handleOpen = (placeKey) => {
         setCurrentKey(placeKey)
@@ -26,12 +26,12 @@ export default function UniversityCard(props) {
        <div className={universityCardStyles.wrapper}>
             <div className={universityCardStyles.container}>
                 <div className={universityCardStyles.imageHolder}>
-                    <img className={universityCardStyles.imageDisplay} src={"https://cdn.vox-cdn.com/thumbor/zvifmyvMRwMLg-h2Q51j3BqqBpE=/1400x788/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/22661965/img19.jpg"}></img>
+                    <img className={universityCardStyles.imageDisplay} src={ props.imageUrl || "https://cdn.vox-cdn.com/thumbor/zvifmyvMRwMLg-h2Q51j3BqqBpE=/1400x788/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/22661965/img19.jpg"}></img>
                 </div>
                 <div className={universityCardStyles.infoContainer}>
                     <div className={universityCardStyles.titleHolder}>
-                    <small>Universitatea</small> Alexandru Ioan Cuza</div>
-                    <div className={universityCardStyles.locationHolder}>Iasi</div>
+                    {props.title || <React.Fragment><small>Universitatea</small> Alexandru Ioan Cuza</React.Fragment>}</div>
+                    <div className={universityCardStyles.locationHolder}>{" "}</div>
                     <div className={universityCardStyles.mottoHolder}>{props.motto || "Prosperitate, Ceva, Altceva" }</div>
                     <div className={universityCardStyles.domainsWrapper}>
                         <div className={universityCardStyles.domainsContainer}>
@@ -94,7 +94,7 @@ function DomainItem(props) {
             : '' }
             <div
                 className={universityCardStyles.domainItem}
-                onClick={handleClick}
+                onClick={(e) => { e.preventDefault(); handleClick()}}
             >
                 <div className={universityCardStyles.domainTitle}>
                     {props.domainTitle}

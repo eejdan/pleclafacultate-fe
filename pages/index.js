@@ -57,7 +57,7 @@ function FirstSection() {
         style={{ height: isSearching ? '300px' : '75px' }} 
         className={`${styles.searchBox} ${isSearching ? 'srpActive' : '' }`}
       >
-        <div className={`${styles.sbiWrapper} ${isSearching ? 'sbiSearching' : ''}`}>
+        <div className={`${styles.sbiWrapper} ${isSearching ? 'sbiSearching' : ''}`} onClick={() => { document.location = '/'}}>
           <input
             onChange={handleSearching}
             className={`${styles.searchBoxInput}`} placeholder={"Universitatea..  "}

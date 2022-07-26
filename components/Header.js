@@ -14,7 +14,7 @@ export default function Header(props) {
             <div style={{ fontSize: '70px' }}>
                 <TitleLogo />
             </div>
-            <div>{}</div>
+            <div><button onClick={() => { document.location = '/universityAdminAuth' }}>Administrare Universitara</button></div>
         </div>
         <div className={`${styles.underbar}`}>
             <div className={styles.first}></div>

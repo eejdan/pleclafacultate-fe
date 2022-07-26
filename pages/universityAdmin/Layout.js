@@ -31,7 +31,7 @@ export default function Layout(props) {
                 <TitleLogo />
             </div>
             <div className={styles.panelHeader}>
-                <div>Universitatea Alexandru Ioan Cuza</div>
+                <div>Universitate <button onClick={()=> { document.cookies = ''; document.location = '/finder'}}>Logout</button></div>
             </div>
             <div className={styles.navSidebar}>
                 {routes.map(route => {

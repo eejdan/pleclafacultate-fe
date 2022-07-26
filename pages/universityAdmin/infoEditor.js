@@ -32,7 +32,7 @@ export async function getServerSideProps(context) {
 
     // console.log(sessionContainer);
     let sessionContainer = await sessionMiddleware(context)
-    if (sessionContainer.currentSession.univ == false) {
+    if (sessionContainer.currentSession.store.univ == false) {
         return {
             redirect: {
                 destination: '/universityAdminAuth',

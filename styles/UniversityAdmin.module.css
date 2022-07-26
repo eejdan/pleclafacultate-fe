@@ -38,7 +38,8 @@
     
     display: flex; 
     justify-content: center;
-    align-items: center;
+    align-items: baseline;
+    gap:10px;
     
     font-size: 25px;
     background-color: #fff;

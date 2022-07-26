@@ -18,8 +18,8 @@ export default function University(props) {
     return (
         <div className={styles.univDummyRoot}>
             <Header />
-            <SectionPageNav setTab={changeTab}/>
-{/*             {currentItem ? currentItem : navItems[1].tabContent }
+{/*             <SectionPageNav setTab={changeTab}/>
+ */}{/*             {currentItem ? currentItem : navItems[1].tabContent }
  */}            <ReviewsBar /> {/* DO THIS BEFORE SWITCHER */}
         </div>
     )

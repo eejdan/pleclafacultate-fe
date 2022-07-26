@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+import sessionMiddleware from '../../lib/sessionMiddleware'
 import Layout from './Layout'
 
 import styles from '../../styles/universityAdmin/index.module.css'
@@ -13,4 +14,24 @@ export default function UniversityAdmin() {
             Poti incepe prin personalizarea cardului de afisare.
         </Layout>
     )
+}
+export async function getServerSideProps(context) {
+
+    // console.log(sessionContainer);
+    let sessionContainer = sessionMiddleware(context)
+    if (sessionContainer.currentSession.univ == false) {
+        return {
+            redirect: {
+                destination: '/universityAdminAuth',
+                permanent: false
+            }
+        }
+    }
+
+    return {
+        props: {
+            sid: sessionContainer.currentSid
+        }
+    };
+
 }

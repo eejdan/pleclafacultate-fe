@@ -9,10 +9,11 @@ import { faHandPointer, faPlus } from '@fortawesome/free-solid-svg-icons';
 //import EditorContainer from "../../components/EditorContainer";
 import Layout from "./Layout";
 
+import sessionMiddleware from '../../lib/sessionMiddleware'
+
 import styles from '../../styles/universityAdmin/FacultiesPageEditor.module.css'
 import { Editor } from '@tinymce/tinymce-react';
 import EditorContainer from '../../components/EditorContainer';
-
 export default function FacultiesPageEditor(props) {
     const [currentIndex, setCurrentIndex] = useState("invalid");
     const [currentFaculty, setCurrentFaculty] = useState(null);
@@ -212,6 +213,27 @@ function InfoTab() {
 function InfoTabItem() {
     return (<div> </div>)
 }
+export async function getServerSideProps(context) {
+
+    // console.log(sessionContainer);
+    let sessionContainer = sessionMiddleware(context)
+    if (sessionContainer.currentSession.univ == false) {
+        return {
+            redirect: {
+                destination: '/universityAdminAuth',
+                permanent: false
+            }
+        }
+    }
+
+    return {
+        props: {
+            sid: sessionContainer.currentSid
+        }
+    };
+
+}
+
 
 /* export async function getServerSideProps(context) {
     var container = { props: { } };

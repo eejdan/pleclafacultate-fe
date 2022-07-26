@@ -1,14 +1,23 @@
 import React, { useRef } from 'react'
 
-import getSession from '../../lib/get-session'
+import sessionMiddleware from '../../lib/sessionMiddleware'
+import connectMongo from '../../utils/connectMongo'
+import University from '../../'
 
 import Layout from './Layout'
 import EditorContainer from '../../components/EditorContainer'
 
 import styles from '../../styles/universityAdmin/MainpageEditor.module.css'
 
-export default function MainpageEditor() {
+export default function MainpageEditor(props) {
 
+    console.log(props.sid);
+
+    const handleSave = () => {
+        fetch('/api/universityAdmin/', {
+
+        })
+    }
 
     return (
         <Layout>
@@ -27,8 +36,26 @@ export default function MainpageEditor() {
     )
 }
 
+export async function getServerSideProps(context) {
 
-export async function getServerSideProps({req, res}) {
-    const session = await getSession(req, res);
-    return { props: {} };
+    // console.log(sessionContainer);
+    let sessionContainer = sessionMiddleware(context)
+    if (sessionContainer.currentSession.univ == false) {
+        return {
+            redirect: {
+                destination: '/universityAdminAuth',
+                permanent: false
+            }
+        }
+    }
+
+    await connectMongo();
+
+
+    return {
+        props: {
+            sid: sessionContainer.currentSid
+        }
+    };
+
 }

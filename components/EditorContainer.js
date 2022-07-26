@@ -7,6 +7,9 @@ import { faMaximize } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function EditorContainer(props) {
+
+
+
     const editorRef = useRef(null);
 
         
@@ -28,7 +31,7 @@ export default function EditorContainer(props) {
                     menubar: true,
                     plugins: [
                         'advlist', 'anchor', 'autolink', 'autosave', 'codesample', 'fullscreen', 'help',
-                        'image', 'tinydrive', 'lists', 'link', 'media', 'preview',
+                        'image', 'lists', 'link', 'media', 'preview',
                         'searchreplace', 'table', 'template', 'visualblocks', 'wordcount',
                     ],
 
@@ -40,10 +43,5 @@ export default function EditorContainer(props) {
             />
             <button onClick={save}>Save</button>
         </div>
-    )//FIXME
-}
-
-export function getServerSideProps(context) {
-
-    return { props: { } }
+    )
 }

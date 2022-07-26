@@ -1,0 +1,14 @@
+
+
+import { Schema, model, models } from 'mongoose'
+
+const sessionSchema = new Schema({
+    sessionString: String,
+    store: Object
+}, {
+    collection: 'sessions'
+})
+
+const Session = models.Session || model("Session", sessionSchema)
+
+module.exports = Session;

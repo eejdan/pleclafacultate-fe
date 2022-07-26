@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import Layout from './Layout'
 import UniversityCard from '../../components/UniversityCard'
+import sessionMiddleware from '../../lib/sessionMiddleware'
 
 import cardEditorStyles from '../../styles/universityAdmin/CardEditor.module.css'
 
@@ -37,4 +38,24 @@ export default function CardEditor() {
 
         </Layout>
     )
+}
+export async function getServerSideProps(context) {
+
+    // console.log(sessionContainer);
+    let sessionContainer = sessionMiddleware(context)
+    if (sessionContainer.currentSession.univ == false) {
+        return {
+            redirect: {
+                destination: '/universityAdminAuth',
+                permanent: false
+            }
+        }
+    }
+
+    return {
+        props: {
+            sid: sessionContainer.currentSid
+        }
+    };
+
 }

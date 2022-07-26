@@ -2,7 +2,8 @@ import React, { useRef } from 'react'
 
 import sessionMiddleware from '../../lib/sessionMiddleware'
 import connectMongo from '../../utils/connectMongo'
-import University from '../../'
+import University from '../../models/University'
+import QuillDoc from '../../models/QuillDoc'
 
 import Layout from './Layout'
 import EditorContainer from '../../components/EditorContainer'
@@ -38,8 +39,9 @@ export default function MainpageEditor(props) {
 
 export async function getServerSideProps(context) {
 
-    // console.log(sessionContainer);
-    let sessionContainer = sessionMiddleware(context)
+    let sessionContainer = await sessionMiddleware(context)
+    console.log(sessionContainer);
+    
     if (sessionContainer.currentSession.univ == false) {
         return {
             redirect: {
@@ -48,12 +50,25 @@ export async function getServerSideProps(context) {
             }
         }
     }
-
+    var content = "";
     await connectMongo();
-
+    let univ = await University.findById(sessionContainer.currentSession.store.univ).exec();
+    if(!univ.mainPage) {
+        let qd = new QuillDoc({
+            metaScope: 'univ-mainPage',
+            quillContent: content
+        });
+        await qd.save();
+        univ.mainPage = qd._id;
+        await univ.save();
+    } else {
+        let qd = await QuillDoc.findById(univ.mainPage).lean().exec();
+        content = qd.quillContent;
+    }
 
     return {
         props: {
+            pageContent: content,
             sid: sessionContainer.currentSid
         }
     };

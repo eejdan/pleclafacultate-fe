@@ -31,7 +31,7 @@ export default function InfoEditor() {
 export async function getServerSideProps(context) {
 
     // console.log(sessionContainer);
-    let sessionContainer = sessionMiddleware(context)
+    let sessionContainer = await sessionMiddleware(context)
     if (sessionContainer.currentSession.univ == false) {
         return {
             redirect: {
